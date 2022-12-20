@@ -1,0 +1,19 @@
+spring:
+  config:
+    import:
+      - env.yml
+  datasource:
+    url: "jdbc:postgresql://127.0.0.1:5432/Test_Spring"
+    username: ${db.username}
+    password: ${db.password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: "org.hibernate.dialect.PostgreSQLDialect"
+    hibernate:
+      ddl-auto: update
+    database-platform: "org.hibernate.dialect.PostgreSQLDialect"
+    generate-ddl: true
+  liquibase:
+    change-log: "db/changelog/db.changelog-master.sql"
